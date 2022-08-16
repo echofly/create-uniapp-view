@@ -4,7 +4,6 @@ const content = `\
     return {}
   },
   computed: {},
-  methods: {},
   watch: {},
 
   // 页面周期函数--监听页面加载
@@ -24,12 +23,13 @@ const content = `\
   // 页面处理函数--监听页面滚动(not-nvue)
   // onPageScroll(event) {},
   // 页面处理函数--用户点击右上角分享
-  // onShareAppMessage(options) {},\
+  // onShareAppMessage(options) {},
+  methods: {},\
 `;
 
 const template = `\
 <template>
-  <div class="<%- options.name%>"><%- options.name %></div>
+  <view class="page"><%- options.name %></view>
 </template>
 
 <script<%- options.scriptAttrs %>>
@@ -40,10 +40,11 @@ export default Vue.extend({
 export default {
 <% } -%>
 ${content}
-<%= options.typescript ? '})' : '}' %> 
+<%= options.typescript ? '})' : '}' %>
 </script>
 
-<style<%- options.styleAttrs %>></style>\
+<style<%- options.styleAttrs %>></style>
+\
 `;
 
 export default template;

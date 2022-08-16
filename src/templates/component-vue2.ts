@@ -1,12 +1,11 @@
 // data 不能为箭头函数, 否则 this 为 undefined
 const content = `\
-  name: "<%- options.name%>",
+  name: '<%- options.name%>',
   props: {},
   data() {
     return {}
   },
   computed: {},
-  methods: {},
   watch: {},
 
   // 组件周期函数--监听组件挂载完毕
@@ -20,12 +19,13 @@ const content = `\
   // 组件周期函数--监听组件停用(隐藏)
   deactivated() {},
   // 组件周期函数--监听组件销毁之前
-  beforeDestroy() {},\
+  beforeDestroy() {},
+  methods: {},\
 `;
 
 const template = `\
 <template>
-  <div class="<%- options.name%>"><%- options.name %></div>
+  <view class="main"><%- options.name %></view>
 </template>
 
 <script<%- options.scriptAttrs %>>
@@ -36,9 +36,10 @@ export default Vue.extend({
 export default {
 <% } -%>
 ${content}
-<%= options.typescript ? '})' : '}' %> 
+<%= options.typescript ? '})' : '}' %>
 </script>
 
-<style<%- options.styleAttrs %>></style>\
+<style<%- options.styleAttrs %>></style>
+\
 `;
 export default template;
